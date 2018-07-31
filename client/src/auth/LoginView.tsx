@@ -9,16 +9,22 @@ import { AuthPayload } from '../auth/AuthPayload';
 
 const BUTTON_PADDING = 20;
 
-interface LoginState {
-  isLoggingIn: boolean;
+interface OwnProps {
+
 }
 
-interface LoginProps {
+interface DispatchProps {
   authenticate?: typeof authenticate;
 }
 
-class LoginView extends React.Component<LoginProps, LoginState> {
-  constructor(props: LoginProps) {
+interface State {
+  isLoggingIn: boolean;
+}
+
+type Props = OwnProps & DispatchProps;
+
+class LoginView extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       isLoggingIn: false,
@@ -46,7 +52,7 @@ class LoginView extends React.Component<LoginProps, LoginState> {
           }}
         >
           Even the Score
-</div>
+        </div>
         {
           [
             <FacebookLoginButton
@@ -96,7 +102,7 @@ class LoginView extends React.Component<LoginProps, LoginState> {
   }
 }
 
-const wrapped: React.ComponentType<LoginProps> = wrap(LoginView, [
+const wrapped = wrap(LoginView, [
   connect(
     null,
     {
