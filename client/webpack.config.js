@@ -28,13 +28,15 @@ module.exports = env => ({
       replacement: () => 'src="index.js"',
     }),
     new webpack.EnvironmentPlugin({
-      'NODE_ENV': env === 'production' ? 'production' : 'development',
+      NODE_ENV: env === 'production' ? 'production' : 'development',
+      MOCK: true,
     }),
   ],
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+      { test: /\.(png)$/, loader: 'file-loader' },
     ],
   },
 });

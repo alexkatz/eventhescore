@@ -8,29 +8,29 @@ import { createMiddleware } from "./createMiddleware";
 import * as DevTools from '../devTools/DevTools';
 
 export function configureStore(history: History): { store: Store<State>, persistor: Persistor } {
-    const rootReducer = createRootReducer();
-    const middleware = createMiddleware(history);
+  const rootReducer = createRootReducer();
+  const middleware = createMiddleware(history);
 
-    const persistedReducer = persistReducer({
-        key: 'root',
-        storage,
-        blacklist: [
-            'routing',
-        ],
-    }, rootReducer);
+  const persistedReducer = persistReducer({
+    key: 'root',
+    storage,
+    blacklist: [
+      'routing',
+    ],
+  }, rootReducer);
 
-    const store = createStore(
-        persistedReducer,
-        compose(
-            applyMiddleware(...middleware),
-            DevTools ? DevTools.instrument() : f => f,
-        ) as StoreEnhancer,
-    );
+  const store = createStore(
+    persistedReducer,
+    compose(
+      applyMiddleware(...middleware),
+      DevTools ? DevTools.instrument() : f => f,
+    ) as StoreEnhancer,
+  );
 
-    const persistor = persistStore(store);
+  const persistor = persistStore(store);
 
-    return {
-        store,
-        persistor,
-    };
+  return {
+    store,
+    persistor,
+  };
 };

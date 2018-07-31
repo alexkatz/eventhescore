@@ -5,8 +5,10 @@
   "license": "MIT",
   "dependencies": {
     "@types/history": "^4.6.2",
+    "axios": "^0.18.0",
     "history": "^4.7.2",
     "html-replace-webpack-plugin": "^2.5.2",
+    "radium": "^0.24.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
@@ -22,6 +24,11 @@
     "start": "webpack-dev-server --inline --hot --mode=development"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/facebook-js-sdk": "^2.8.6",
+    "@types/gapi": "^0.0.35",
+    "@types/gapi.auth2": "^0.0.47",
+    "@types/radium": "^0.24.0",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.4",
@@ -33,6 +40,7 @@
     "@types/redux-persist": "^4.3.1",
     "@types/redux-thunk": "^2.1.0",
     "awesome-typescript-loader": "^5.2.0",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.3",
