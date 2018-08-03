@@ -1,7 +1,7 @@
 import { RouterState } from "react-router-redux";
 import { AuthState } from "../auth/reducer";
 
-export interface State {
+export interface AppState {
   routing: RouterState;
   auth: AuthState;
 }

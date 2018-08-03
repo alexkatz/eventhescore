@@ -1,5 +1,5 @@
 import { ThunkAction } from 'redux-thunk';
-import { State } from '../store/state';
+import { AppState } from '../store/state';
 import { client } from '../shared/client';
 import { Action } from 'redux';
 import { User } from '../auth/User';
@@ -14,7 +14,7 @@ export interface AuthAction extends Action {
   user?: User;
 }
 
-export const authenticate = (authPayload: AuthPayload): ThunkAction<Promise<void>, State, any, AuthAction> =>
+export const authenticate = (authPayload: AuthPayload): ThunkAction<Promise<void>, AppState, any, AuthAction> =>
   async dispatch => {
     try {
       if (process.env.MOCK) {

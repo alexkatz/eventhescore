@@ -1,13 +1,13 @@
 import { Store, createStore, compose, applyMiddleware, StoreEnhancer } from "redux";
 import { History } from 'history';
-import { State } from './state';
+import { AppState } from './state';
 import { persistStore, persistReducer, Persistor } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { createRootReducer } from "./createRootReducer";
 import { createMiddleware } from "./createMiddleware";
 import * as DevTools from '../devTools/DevTools';
 
-export function configureStore(history: History): { store: Store<State>, persistor: Persistor } {
+export const configureStore = (history: History): { store: Store<AppState>, persistor: Persistor } => {
   const rootReducer = createRootReducer();
   const middleware = createMiddleware(history);
 
